@@ -10,5 +10,7 @@
 #
 
 class User < ApplicationRecord
-	has_many :friend_requests, dependent: :destroy
+	has_many :friend_requests, dependent: :destroy #outgoing friend requests
+	has_many :incoming_friend_requests, class_name: "FriendRequest", foreign_key: "friend_id"
+	
 end
